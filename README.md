@@ -26,7 +26,7 @@ options:
 ```
 **Input:**
 ```shell
-$ python3 snippet_make.py --text_file test/test_py_shebang.txt --title "Python shebang" --prefix "pyshebang" 
+$ python3 snippet_make.py --text_file "test/test_py_shebang.txt" --title "Python shebang" --prefix "pyshebang" 
 ```
 **Output:**
 ```json
@@ -38,5 +38,5 @@ $ python3 snippet_make.py --text_file test/test_py_shebang.txt --title "Python s
     "description": ""
 }
 ```
-
+# Acknowledgements
 Credit to **[@xiaket](https://stackoverflow.com/users/411662/xiaket) et al.** on this [StackOverflow post](https://stackoverflow.com/questions/30239092/how-to-get-multiline-input-from-the-user), for implementation of multi-line text input in Python. 🙏
