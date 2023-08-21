@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+import sys
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description="This script does stuff")
+
+parser.add_argument("-i", action="store", dest="input_file", type=str, help="Input file")
+parser.add_argument("-p", action="store", dest="param", type=float, default=50.0, help="Some numerical parameter (default: 50.0)")
+parser.add_argument("-s", action="store_true", dest="switch", help="Run code function conditionally")
+
+args = parser.parse_args()
+
+if len(sys.argv) < 2:
+    parser.print_help()
+    sys.exit(1)
+
+if args.switch:
+    # Body to execute, given -s switch
