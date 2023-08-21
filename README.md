@@ -20,7 +20,7 @@ options:
 ```
 
 # Examples
-**Example of text turn into snippet**
+**Example of text to create snippet from**
 ```python
 #!/usr/bin/env python3
 ```

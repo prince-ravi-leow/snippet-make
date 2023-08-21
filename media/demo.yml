@@ -23,7 +23,7 @@ config:
   # Explicitly set the number of rows
   # or use `auto` to take the current
   # number of rows of your shell
-  rows: 40
+  rows: 20
   
   # Amount of times to repeat GIF
   # If value is -1, play once
@@ -37,7 +37,7 @@ config:
   
   # Delay between frames in ms
   # If the value is `auto` use the actual recording delays
-  frameDelay: 1000
+  frameDelay: auto
   
   # Maximum delay between frames in ms
   # Ignored if the `frameDelay` isn't set to `auto`
@@ -49,10 +49,10 @@ config:
   # To hide the title use the value null
   # Don't forget to add a backgroundColor style with a null as type
   frameBox:
-    type: floating
-    title: Terminalizer
-    style:
-      border: 0px black solid
+    type: solid
+    title: null
+    style: []
+      # border: 0px black solid
       # boxShadow: none
       # margin: 0px
   
@@ -111,19 +111,25 @@ config:
   
 # Records, feel free to edit them
 records:
-  - delay: 0
-    content: "(base) Princes-MacBook-Pro:snippet_make prince$ "
-  - delay: 1175
+  # - delay: 323
+  #   content: "Running on ARM64 using anaconda3 and subdir=osx-arm64\r\n"
+  - delay: 779
+    content: "\r(base) Princes-MacBook-Pro:snippet_make prince$ "
+  - delay: 837
     content: "python3 snippet_make.py --paste True --title \"Python she \rbang\" --prefix \"pyshebang\""
-  - delay: 706
+  - delay: 525
     content: "\r\n"
-  - delay: 45
+  - delay: 54
     content: "Enter/Paste your content, hit RETURN, followed by Ctrl-D (Ctrl-Z on Windows) to accept input.\r\n\r\n"
-  - delay: 7534
+  - delay: 3516
     content: '#!/usr/bin/env python3'
-  - delay: 850
+  - delay: 2010
     content: "\r\n"
-  - delay: 719
-    content: "^D\b\b\r\n\"Python shebang\": {\r\n    \"prefix\": \"pyshebang\",\r\n    \"body\": [\r\n        \"#!/usr/bin/env python3\"\r\n    ],\r\n    \"description\": \"\"\r\n}\r\n\r\n"
-  - delay: 9
+  - delay: 1735
+    content: "\r\n"
+  - delay: 661
+    content: "^D\b\b\r\n\"Python shebang\": {\r\n    \"prefix\": \"pyshebang\",\r\n    \"body\": [\r\n        \"#!/usr/bin/env python3\",\r\n        \"\"\r\n    ],\r\n    \"description\": \"\"\r\n}\r\n\r\n"
+  - delay: 8
     content: '(base) Princes-MacBook-Pro:snippet_make prince$ '
+  - delay: 3187
+    content: " "
