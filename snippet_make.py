@@ -54,10 +54,7 @@ if body:
     with open(body, "rt") as input_file:
     		for line in input_file:
     			snippet_body.append(line)
-                        
-if not desc:
-    desc = ""
-			
+                    
 # Load snippet body from clipboard 
 if paste:
     print("Enter/Paste your content, hit RETURN, followed by Ctrl-D (Ctrl-Z on Windows) to accept input.\n")
@@ -70,12 +67,15 @@ if paste:
         snippet_body.append(line)
 
 # Construct VS Code Snippet JSON object
+if not desc:
+    desc = ""
+
 snippet_object = {
     "prefix": prefix,
     "body": snippet_body,
     "description": desc
 }
-snippet_json = f'"{title}": ' + json.dumps(snippet_object, indent = 4)
+snippet_json = f'"{title}": ' + json.dumps(snippet_object, indent=4)
 
 # Print output to console
 print(f"\n{snippet_json}\n")

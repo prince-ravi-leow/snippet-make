@@ -111,8 +111,6 @@ config:
   
 # Records, feel free to edit them
 records:
-  # - delay: 323
-  #   content: "Running on ARM64 using anaconda3 and subdir=osx-arm64\r\n"
   - delay: 779
     content: "\r(base) Princes-MacBook-Pro:snippet_make prince$ "
   - delay: 837
