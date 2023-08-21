@@ -46,7 +46,7 @@ $ python3 snippet_make.py --text_file "test/test_py_shebang.txt" --title "Python
 $ python3 snippet_make.py --paste True --title "Python shebang" --prefix "pyshebang"
 ```
 
-![paste_animation](https://github.com/prince-ravi-leow/snippet-make/blob/main/media/animation.gif?raw=true)
+![paste_animation](https://github.com/prince-ravi-leow/snippet-make/blob/main/media/demo_clipboard.gif?raw=true)
 
 # Acknowledgements
 Credit to **[@xiaket](https://stackoverflow.com/users/411662/xiaket) et al.** on this [StackOverflow post](https://stackoverflow.com/questions/30239092/how-to-get-multiline-input-from-the-user), for implementation of multi-line text input in Python. 🙏
