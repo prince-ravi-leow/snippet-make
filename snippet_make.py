@@ -16,7 +16,8 @@ parser.add_argument("--paste",
                     action="store", 
                     dest="paste", 
                     type=bool, 
-                    help="Paste code directly into console")
+                    default=False,
+                    help="Paste code directly into console (default: False)")
 parser.add_argument("--title", 
                     action="store", 
                     dest="title", 
@@ -33,7 +34,7 @@ parser.add_argument("--desc",
                     action="store", 
                     dest="desc", 
                     type=str, 
-                    help="Descriptive description of your snippet (Optional)")
+                    help="Descriptive description of your snippet (optional)")
 
 if len(sys.argv) < 2:
     parser.print_help()
