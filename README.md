@@ -19,15 +19,17 @@ options:
   --desc DESC       Descriptive description of your snippet (Optional)
 ```
 
-# Example
-**Example snippet:**
+# Examples
+**Example of text turn into snippet**
 ```python
 #!/usr/bin/env python3
 ```
+## From text file
 **Input:**
 ```shell
 $ python3 snippet_make.py --text_file "test/test_py_shebang.txt" --title "Python shebang" --prefix "pyshebang" 
 ```
+
 **Output:**
 ```json
 "Python shebang": {
@@ -38,5 +40,13 @@ $ python3 snippet_make.py --text_file "test/test_py_shebang.txt" --title "Python
     "description": ""
 }
 ```
+
+## Copy pasting
+```shell
+$ python3 snippet_make.py --paste True --title "Python shebang" --prefix "pyshebang"
+```
+
+
+
 # Acknowledgements
 Credit to **[@xiaket](https://stackoverflow.com/users/411662/xiaket) et al.** on this [StackOverflow post](https://stackoverflow.com/questions/30239092/how-to-get-multiline-input-from-the-user), for implementation of multi-line text input in Python. 🙏
