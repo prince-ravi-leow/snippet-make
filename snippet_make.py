@@ -1,81 +1,73 @@
 #!/usr/bin/env python3
 
-import sys
 import json
-from argparse import ArgumentParser
 
-### PARSE ARGUMENTS
-parser = ArgumentParser(description="Convert text into VS Code Snippet")
+def snippet_make(text_file, paste, title, prefix, desc):
+	if text_file:
+		with open(text_file, "rt") as input_file:
+			snippet_body = [line for line in input_file]
 
-parser.add_argument("--text_file", 
-                    action="store", 
-                    dest="body", 
-                    type=str, 
-                    help="Load code stored in text file")
-parser.add_argument("--paste", 
-                    action="store", 
-                    dest="paste", 
-                    type=bool, 
-                    default=False,
-                    help="Paste code directly into console (default: False)")
-parser.add_argument("--title", 
-                    action="store", 
-                    dest="title", 
-                    type=str, 
-                    help="Name of snippet in JSON", 
-                    required=True)
-parser.add_argument("--prefix", 
-                    action="store", 
-                    dest="prefix", 
-                    type=str, 
-                    help="Shortcut to call snippet", 
-                    required=True)
-parser.add_argument("--desc", 
-                    action="store", 
-                    dest="desc", 
-                    type=str, 
-                    help="Descriptive description of your snippet (optional)")
+	if paste:
+		print("Enter/Paste your content, hit RETURN to accept input.\n")
+		snippet_body = input()
 
-if len(sys.argv) < 2:
-    parser.print_help()
-    sys.exit(1)
+	snippet_object = {
+		"prefix": prefix,
+		"body": snippet_body,
+		"description": "" if not desc else desc
+	}
+	
+	snippet_json = f'"{title}": ' + json.dumps(snippet_object, indent = 4)
 
-args = parser.parse_args()
-paste = args.paste
-body = args.body
-title = args.title
-prefix = args.prefix
-desc = args.desc
+	return snippet_json
 
-### MAIN BODY
-# Load snippet body from text file
-if body:
-    snippet_body = []
-    with open(body, "rt") as input_file:
-    		for line in input_file:
-    			snippet_body.append(line)
-                    
-# Load snippet body from clipboard 
-if paste:
-    print("Enter/Paste your content, hit RETURN, followed by Ctrl-D (Ctrl-Z on Windows) to accept input.\n")
-    snippet_body = []
-    while True:
-        try:
-            line = input()
-        except EOFError:
-            break
-        snippet_body.append(line)
 
-# Construct VS Code Snippet JSON object
-if not desc:
-    desc = ""
+if __name__ == "__main__":
+	import sys
+	from argparse import ArgumentParser
 
-snippet_object = {
-    "prefix": prefix,
-    "body": snippet_body,
-    "description": desc
-}
-snippet_json = f'"{title}": ' + json.dumps(snippet_object, indent=4)
+	parser = ArgumentParser(description = "Make VS Code Snippet from text file or clipboard")
 
-# Print output to console
-print(f"\n{snippet_json}\n")
+	parser.add_argument(
+		"--text_file", 
+		dest = "text_file", 
+		help = "Load code from text file")
+	parser.add_argument(
+		"--paste", 
+		action = "store_true", 
+		dest = "paste", 
+		help = "Paste code directly into console")
+	parser.add_argument(
+		"--title", 
+		dest = "title", 
+		help = "Name of snippet in JSON", 
+		required = True)
+	parser.add_argument(
+		"--prefix", 
+		dest = "prefix", 
+		help = "Shortcut to call snippet", 
+		required = True)
+	parser.add_argument(
+		"--desc", 
+		dest = "desc", 
+		type = str, 
+		help = "Descriptive description of your snippet (optional)")
+
+	if len(sys.argv) < 2:
+		parser.print_help()
+		sys.exit(1)
+
+	args = parser.parse_args()
+	text_file = args.text_file
+	paste = args.paste
+	title = args.title
+	prefix = args.prefix
+	desc = args.desc
+
+	if not text_file and not paste:
+		print("Please specify text file to load code from (--text_file <path/to/code.txt>), or invoke --paste flag to paste code directly into console")
+		sys.exit(1)
+
+	snippet_json = snippet_make(text_file, paste, title, prefix, desc)
+
+	print(f"\n{snippet_json}\n")
