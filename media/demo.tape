@@ -54,7 +54,7 @@
 
 Output media/vhs.gif
 
-Type 'python3 snippet_make.py --paste True --title "Python shebang" --prefix "pyshebang"' 
+Type 'python3 snippet_make.py --paste --title "Python shebang" --prefix "pyshebang"'
 
 Sleep 500ms
 
@@ -62,10 +62,13 @@ Enter
 
 Sleep 1s
 
-Type "#!/usr/bin/env python3" Enter
+Type "#!/usr/bin/env python3"
+
+# Copy "#!/usr/bin/env python3"
+# Paste 
 
 Sleep 2s
 
-Ctrl+D
+Enter
 
 Sleep 5s
