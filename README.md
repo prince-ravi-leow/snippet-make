@@ -7,16 +7,18 @@ See [official docs](https://code.visualstudio.com/docs/editor/userdefinedsnippet
 # Usage
 ```text
 $ python3 snippet_make.py --help
-usage: snippet_make.py [-h] [--text_file BODY] [--paste PASTE] --title TITLE --prefix PREFIX [--desc DESC]
+usage: snippet_make.py [-h] [--text_file TEXT_FILE] [--paste] --title TITLE --prefix PREFIX [--desc DESC]
 
+Make VS Code Snippet from text file or clipboard
 
 options:
-  -h, --help        show this help message and exit
-  --text_file BODY  Load code stored in text file
-  --paste PASTE     Paste code directly into console
-  --title TITLE     Name of snippet in JSON
-  --prefix PREFIX   Shortcut to call snippet
-  --desc DESC       Descriptive description of your snippet (Optional)
+  -h, --help            show this help message and exit
+  --text_file TEXT_FILE
+                        Load code from text file
+  --paste               Paste code directly into console
+  --title TITLE         Name of snippet in JSON
+  --prefix PREFIX       Shortcut to call snippet
+  --desc DESC           Descriptive description of your snippet (optional)
 ```
 
 # Examples
@@ -47,6 +49,3 @@ $ python3 snippet_make.py --paste True --title "Python shebang" --prefix "pysheb
 ```
 
 ![paste_animation](https://github.com/prince-ravi-leow/snippet-make/blob/main/media/vhs.gif?raw=true)
-
-# Acknowledgements
-Credit to **[@xiaket](https://stackoverflow.com/users/411662/xiaket) et al.** on this [StackOverflow post](https://stackoverflow.com/questions/30239092/how-to-get-multiline-input-from-the-user), for implementation of multi-line text input in Python. 🙏
