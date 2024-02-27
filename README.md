@@ -43,9 +43,9 @@ $ python3 snippet_make.py --text_file "test/test_py_shebang.txt" --title "Python
 }
 ```
 
-## From clipboard (`--paste True`)
+## From clipboard (`--paste`)
 ```shell
-$ python3 snippet_make.py --paste True --title "Python shebang" --prefix "pyshebang"
+$ python3 snippet_make.py --paste --title "Python shebang" --prefix "pyshebang"
 ```
 
 ![paste_animation](https://github.com/prince-ravi-leow/snippet-make/blob/main/media/vhs.gif?raw=true)
