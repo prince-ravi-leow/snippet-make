@@ -4,12 +4,18 @@ import json
 
 def snippet_make(text_file, paste, title, prefix, desc):
 	if text_file:
-		with open(text_file, "rt") as input_file:
-			snippet_body = [line for line in input_file]
+		with open(text_file, "rt") as f:
+			snippet_body = [line.rstrip() for line in f.readlines()]
 
 	if paste:
-		print("Enter/Paste your content, hit RETURN to accept input.\n")
-		snippet_body = input()
+		print("Enter/Paste your content, hit RETURN, followed by Ctrl-D (Ctrl-Z on Windows) to accept input.\n")
+		snippet_body = []
+		while True:
+			try:
+				line = input()
+			except EOFError:
+				break
+			snippet_body.append(line)
 
 	snippet_object = {
 		"prefix": prefix,
@@ -21,9 +27,7 @@ def snippet_make(text_file, paste, title, prefix, desc):
 
 	return snippet_json
 
-
 if __name__ == "__main__":
-	import sys
 	from argparse import ArgumentParser
 
 	parser = ArgumentParser(description = "Make VS Code Snippet from text file or clipboard")
@@ -52,11 +56,7 @@ if __name__ == "__main__":
 		dest = "desc", 
 		type = str, 
 		help = "Descriptive description of your snippet (optional)")
-
-	if len(sys.argv) < 2:
-		parser.print_help()
-		sys.exit(1)
-
+	
 	args = parser.parse_args()
 	text_file = args.text_file
 	paste = args.paste
@@ -64,10 +64,6 @@ if __name__ == "__main__":
 	prefix = args.prefix
 	desc = args.desc
 
-	if not text_file and not paste:
-		print("Please specify text file to load code from (--text_file <path/to/code.txt>), or invoke --paste flag to paste code directly into console")
-		sys.exit(1)
-
 	snippet_json = snippet_make(text_file, paste, title, prefix, desc)
 
-	print(f"\n{snippet_json}\n")
+	print(f"\n\n{snippet_json}\n\n")
