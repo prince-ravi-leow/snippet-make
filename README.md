@@ -4,6 +4,8 @@ Easily create VS Code Snippet by copy-pasting into the command line, or loading 
 
 See [official docs](https://code.visualstudio.com/docs/editor/userdefinedsnippets), to make your snippet executable.
 
+Note: at the time of me making this, I wasn't aware of a simple intuitive way to automate the process of snippet generation. This is no longer true, with the existence of the following project: https://github.com/pawelgrzybek/snippet-generator – which effectively makes this project irrelevant. I'm going to keep this repo public, mostly out of sentimental value, and in the unlikely case I decide to do my own take on an interactive / web app experience. For now however, go out and check the mentioned project, it literally does everything I wanted this script to do, in a much more intutive and robust manner, for multiple text editors (not only VS Code).  
+
 # Usage
 ```text
 $ python3 snippet_make.py --help
